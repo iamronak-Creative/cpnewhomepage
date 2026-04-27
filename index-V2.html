@@ -424,7 +424,7 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);-webkit-font
 .sc:hover{border-color:rgba(0,84,99,0.18);background:var(--white);box-shadow:0 4px 24px rgba(0,84,99,0.07);transform:translateY(-2px);}
 .sc.ai-card{border-color:rgba(149,226,226,0.22);}
 .sc.ai-card:hover{border-color:rgba(149,226,226,0.5);box-shadow:0 4px 24px rgba(149,226,226,0.14);}
-.sc.feat{background:linear-gradient(135deg,rgba(0,84,99,0.04) 0%,var(--white) 80%);border-color:rgba(0,84,99,0.1);}
+.sc.feat{border-color:rgba(0,84,99,0.1);}
 .sc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;gap:8px;}
 .sc-icon{font-size:22px;flex-shrink:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;}.sc-icon img{width:22px;height:22px;display:block;}
 .sc-badge{font-family:var(--fh);font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:100px;white-space:nowrap;}
@@ -514,10 +514,14 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);-webkit-font
 
 /* ════ TECH STACK ════ */
 .tech-stack-wrap{background:linear-gradient(135deg,#070b0f,#0d1319);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:18px;}
-.tech-stack-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border:1px solid rgba(255,255,255,0.07);border-radius:999px;background:rgba(0,84,99,0.07);margin-bottom:18px;}
-.tech-stack-tab{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border-radius:999px;font-family:var(--fh);font-size:12px;font-weight:600;color:rgba(255,255,255,0.52);background:transparent;line-height:1;white-space:nowrap;border:none;cursor:pointer;transition:all .2s ease;}
-.tech-stack-tab:hover{color:rgba(255,255,255,0.85);}
-.tech-stack-tab.active{background:var(--bitter);color:var(--white);}
+.tech-stack-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;padding:0;border:none;background:transparent;}
+.tech-stack-tab{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border-radius:100px;font-family:var(--fh);font-size:12px;font-weight:600;line-height:1;white-space:nowrap;cursor:pointer;border:1px solid rgba(255,255,255,0.1);color:#d7e0ea;background:#111926;transition:all .2s;}
+.tech-stack-tab:hover{border-color:rgba(149,226,226,0.5);color:#eef7ff;}
+.tech-stack-tab.active{background:var(--sherpa);color:var(--white);border-color:var(--sherpa);}
+.tech-stack-tab-icon{width:18px;height:18px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:rgba(149,226,226,0.16);flex-shrink:0;}
+.tech-stack-tab-icon img{width:12px;height:12px;display:block;filter:brightness(1);}
+.tech-stack-tab.active .tech-stack-tab-icon{background:rgba(255,255,255,0.18);}
+.tech-stack-tab.active .tech-stack-tab-icon img{filter:brightness(0) invert(1);}
 .tech-stack-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;}
 .tech-stack-card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:74px;text-align:center;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s;cursor:pointer;}
 .tech-stack-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08);transform:translateY(-3px);}
@@ -1030,7 +1034,7 @@ body{font-family:var(--fb);background:var(--white);color:var(--ink);-webkit-font
   margin-bottom:0 !important; flex-shrink:0;
   display:flex !important; align-items:center !important; justify-content:center !important;
 }
-.psw-name { font-size:13px !important; margin-bottom:0 !important; white-space:nowrap; font-weight:600 !important; }
+.psw-name { font-size:12px !important; margin-bottom:0 !important; white-space:nowrap; font-weight:600 !important; }
 .psw.on .psw-icon { background:rgba(255,255,255,0.15) !important; }
 .psw.on .psw-name { color:#fff !important; }
 
@@ -1805,12 +1809,56 @@ h1, h2, h3, h4, .hero-h1, .sec-h, .ai-ban-h, .cta-h, .nav-btn, .nav-plain, .mc-t
     transform: translateX(5px);
 }
 
-/* Footer overrides */
-.footer { background: #030405 !important; border-top: 1px solid rgba(255, 255, 255, 0.05) !important; padding: 0 !important; }
-.ft-inner { padding: 80px 0 40px !important; }
-.ft-col-h { color: var(--glory) !important; }
-.ft-link { color: rgba(255, 255, 255, 0.5) !important; }
-.ft-link:hover { color: #fff !important; }
+/* Footer redesign (reference-matched layout, CP palette) */
+.footer{background:#04070b !important;border-top:1px solid rgba(255,255,255,0.08) !important;padding:0 !important;font-family:var(--fb);}
+.ft-inner{padding:72px 120px 20px !important;margin:0 !important;box-sizing:border-box;}
+.ft-grid{display:grid;grid-template-columns:minmax(270px,1.25fr) repeat(3,minmax(130px,.72fr)) minmax(290px,1.35fr);gap:42px;align-items:start;margin-bottom:36px;}
+.ft-logo-wrap img{filter:brightness(0) invert(1) !important;}
+.ft-desc{font-family:var(--fb);font-size:14px;line-height:1.68;color:rgba(255,255,255,0.58);max-width:360px;margin:16px 0 20px;}
+.ft-meta-h{font-family:var(--fh);font-size:20px;font-weight:700;color:#fff;margin:0 0 10px;}
+.ft-meta-link{display:block;font-family:var(--fh);font-size:25px;font-weight:800;color:var(--glory);text-decoration:none;margin-bottom:8px;}
+.ft-meta-link:hover{color:#b7f2f2;}
+.ft-meta-mail{display:block;font-family:var(--fb);font-size:15px;font-weight:600;color:rgba(255,255,255,0.82);text-decoration:none;margin-bottom:20px;}
+.ft-meta-mail:hover{color:var(--glory);}
+.ft-action{display:inline-flex;align-items:center;gap:10px;border:none;border-radius:100px;background:var(--bitter);color:#fff;font-family:var(--fh);font-size:13px;font-weight:700;padding:12px 22px;cursor:pointer;transition:background .2s,transform .2s;}
+.ft-action:hover{background:#f68d82;transform:translateY(-1px);}
+.ft-action i{font-style:normal;font-size:15px;opacity:.75;}
+.ft-col-h{font-family:var(--fh);font-size:15px;font-weight:700;letter-spacing:0;color:#fff !important;margin-bottom:12px;text-transform:none;}
+.ft-link{display:block;font-family:var(--fb);font-size:14px;color:rgba(255,255,255,0.62) !important;padding:4px 0;text-decoration:none;}
+.ft-link:hover{color:var(--glory) !important;}
+.ft-cities{display:flex;gap:18px;margin-top:8px;}
+.ft-cities .ft-link{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;}
+.ft-subscribe{background:linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:24px 26px;}
+.ft-subscribe h4{margin:0 0 8px;font-family:var(--fh);font-size:32px;line-height:1;font-weight:800;color:#fff;}
+.ft-subscribe p{margin:0 0 18px;font-family:var(--fb);font-size:12px;color:rgba(255,255,255,0.52);line-height:1.5;}
+.ft-subscribe-row{display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.24);padding-bottom:8px;}
+.ft-subscribe-row input{flex:1;border:none;background:transparent;outline:none;font-family:var(--fb);font-size:23px;color:#fff;}
+.ft-subscribe-row input::placeholder{color:rgba(255,255,255,0.55);}
+.ft-subscribe-row button{width:31px;height:31px;border-radius:50%;border:none;background:var(--bitter);color:#fff;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;}
+.ft-divider{height:1px;background:rgba(255,255,255,0.09);margin:0 0 24px;}
+.ft-logos{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:12px;align-items:center;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.09);}
+.ft-logo-pill{height:52px;border:1px solid rgba(255,255,255,0.11);background:rgba(255,255,255,0.03);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:12px;font-weight:700;color:rgba(255,255,255,0.86);letter-spacing:.2px;}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:14px;border-top:none;font-family:var(--fb);font-size:11px;color:rgba(255,255,255,0.45);flex-wrap:wrap;}
+.ft-socials{display:flex;gap:12px;}
+.ft-soc{width:auto;height:auto;border:none;background:transparent;padding:0;font-family:var(--fb);color:rgba(255,255,255,0.72);text-decoration:none;font-size:13px;}
+.ft-soc:hover{color:var(--glory);}
+.ft-bl{display:flex;gap:12px;align-items:center;}
+.ft-bl a{font-family:var(--fb);color:rgba(255,255,255,0.62);text-decoration:none;}
+.ft-bl a:hover{color:var(--glory);}
+
+@media (max-width:1200px){
+  .ft-inner{padding:64px 40px 20px !important;}
+  .ft-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ft-subscribe{grid-column:1 / -1;}
+  .ft-logos{grid-template-columns:repeat(5,minmax(0,1fr));}
+}
+@media (max-width:760px){
+  .ft-inner{padding:56px 20px 18px !important;}
+  .ft-grid{grid-template-columns:1fr;gap:24px;}
+  .ft-logos{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ft-subscribe h4{font-size:24px;}
+  .ft-subscribe-row input{font-size:17px;}
+}
 
 /* ════════ END REFINEMENT ════════ */
 
@@ -1845,12 +1893,6 @@ h1, h2, h3, h4, .hero-h1, .sec-h, .ai-ban-h, .cta-h, .nav-btn, .nav-plain, .mc-t
   <div class="hero-blob2"></div>
   <div class="hero-in">
   <div class="hero-left">
-    <div class="hero-trust">
-      <span class="ti ti-logo"><img src="https://cdn.simpleicons.org/shopify/ffffff" height="13" style="vertical-align:middle;margin-right:5px;opacity:0.9;" alt="">Shopify Select 2025</span><span class="tsep">·</span>
-      <span class="ti ti-logo"><img src="https://cdn.simpleicons.org/google/ffffff" height="13" style="vertical-align:middle;margin-right:5px;opacity:0.9;" alt="">Google Premier</span><span class="tsep">·</span>
-      <span class="ti ti-logo"><img src="https://cdn.simpleicons.org/clutch/ffffff" height="13" style="vertical-align:middle;margin-right:5px;opacity:0.9;" alt="">Clutch Top 1%</span><span class="tsep">·</span>
-      <span class="ti">17 Years · 250+ Clients</span>
-    </div>
     <h1 class="hero-h1">
       AI-powered <em class="gl">engineering</em><br>
       with one <span class="bt">strategic</span><br>
@@ -1863,10 +1905,11 @@ h1, h2, h3, h4, .hero-h1, .sec-h, .ai-ban-h, .cta-h, .nav-btn, .nav-plain, .mc-t
       <button class="glow-btn glow-s">View Case Studies <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
     </div>
     <div class="hero-kpis">
-      <div class="kpi"><div class="kpi-n">$1B+</div><div class="kpi-l">Client Revenue Generated</div></div>
+      <div class="kpi"><div class="kpi-n">40+</div><div class="kpi-l">AI Solutions Deployed</div></div>
       <div class="kpi"><div class="kpi-n">250+</div><div class="kpi-l">Businesses Scaled</div></div>
       <div class="kpi"><div class="kpi-n">17 Yrs</div><div class="kpi-l">Engineering Excellence</div></div>
-      <div class="kpi"><div class="kpi-n">40+</div><div class="kpi-l">AI Solutions Deployed</div></div>
+      <div class="kpi"><div class="kpi-n">98%</div><div class="kpi-l">Client Retention Rate</div></div>
+      <div class="kpi"><div class="kpi-n">35%</div><div class="kpi-l">Faster Delivery via AI Optimization</div></div>
     </div>
   </div>
 </div>
@@ -2313,9 +2356,6 @@ window.addEventListener('DOMContentLoaded',function(){
       <div class="ai-sol-card"><div class="ai-sol-icon"><img src="https://api.iconify.design/lucide:zap.svg?color=%23005463" width="28" height="28" alt=""></div><div class="ai-sol-name">CommerceIQ</div><div class="ai-sol-cat">AI · Analytics · Personalization</div><div class="ai-sol-desc">Predictive intelligence for eCommerce. Demand forecasting, AI product recommendations, and automated marketing triggers. Built on proven delivery for CanvasChamp and LA Nails.</div><button class="glow-btn glow-l" style="margin-top:20px;">Explore Solution <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></div>
       <div class="ai-sol-card"><div class="ai-sol-icon"><img src="https://api.iconify.design/lucide:database.svg?color=%23005463" width="28" height="28" alt=""></div><div class="ai-sol-name">DataBridge</div><div class="ai-sol-cat">Data Engineering · BI · Reporting</div><div class="ai-sol-desc">End-to-end data pipeline and BI solution. Connects storefront, ERP, CRM, and ad platforms into a single real-time intelligence layer with automated dashboards.</div><button class="glow-btn glow-l" style="margin-top:20px;">Explore Solution <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></div>
       <div class="ai-sol-card"><div class="ai-sol-icon"><img src="https://api.iconify.design/lucide:mic.svg?color=%23005463" width="28" height="28" alt=""></div><div class="ai-sol-name">VoiceFlow CP</div><div class="ai-sol-cat">AI Voice · Conversational AI · Support</div><div class="ai-sol-desc">Intelligent voice and chat agents for customer support, order management, and sales. Handles 80% of support volume autonomously. Integrates with Shopify, Magento, Odoo.</div><button class="glow-btn glow-l" style="margin-top:20px;">Explore Solution <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></div>
-      <div class="ai-sol-card"><div class="ai-sol-icon"><img src="https://api.iconify.design/lucide:arrow-left-right.svg?color=%23005463" width="28" height="28" alt=""></div><div class="ai-sol-name">MigrateAI</div><div class="ai-sol-cat">Platform Migration · Automation · QA</div><div class="ai-sol-desc">AI-assisted migration toolkit. Automated data mapping, content migration, and QA reduces Magento→Shopify timelines by up to 60% vs traditional methods.</div><button class="glow-btn glow-l" style="margin-top:20px;">Explore Solution <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></div>
-      <div class="ai-sol-card"><div class="ai-sol-icon"><img src="https://api.iconify.design/lucide:printer.svg?color=%23005463" width="28" height="28" alt=""></div><div class="ai-sol-name">AutoPrint AI</div><div class="ai-sol-cat">Printing &amp; Packaging · Industry-Specific</div><div class="ai-sol-desc">AI-powered design-to-print workflow engine. Automates spec validation, artwork processing, and order routing for custom product businesses.</div><button class="glow-btn glow-l" style="margin-top:20px;">Explore Solution <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></div>
-      <div class="ai-sol-card"><div class="ai-sol-icon"><img src="https://api.iconify.design/lucide:brain-circuit.svg?color=%23005463" width="28" height="28" alt=""></div><div class="ai-sol-name">AgentStack</div><div class="ai-sol-cat">Agentic AI · Enterprise Automation</div><div class="ai-sol-desc">Enterprise-grade multi-agent AI framework. Deploy autonomous AI agents that handle research, decision-making, and task execution at scale without human intervention at each step.</div><button class="glow-btn glow-l" style="margin-top:20px;">Explore Solution <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></div>
     </div>
   </div>
 </div>
@@ -2532,13 +2572,13 @@ window.addEventListener('DOMContentLoaded',function(){
 
     <div class="tech-stack-wrap">
       <div class="tech-stack-tabs" aria-label="Technology stack categories">
-        <button type="button" class="tech-stack-tab active" data-tech-tab="ai">AI Technologies</button>
-        <button type="button" class="tech-stack-tab" data-tech-tab="mobile">Mobile</button>
-        <button type="button" class="tech-stack-tab" data-tech-tab="frontend">Front End</button>
-        <button type="button" class="tech-stack-tab" data-tech-tab="database">Database</button>
-        <button type="button" class="tech-stack-tab" data-tech-tab="backend">Backend</button>
-        <button type="button" class="tech-stack-tab" data-tech-tab="cms">CMS</button>
-        <button type="button" class="tech-stack-tab" data-tech-tab="devops">Infra &amp; DevOps</button>
+        <button type="button" class="tech-stack-tab active" data-tech-tab="ai"><span class="tech-stack-tab-icon"><img src="https://api.iconify.design/lucide:bot.svg?color=%23005463" alt=""></span>AI Technologies</button>
+        <button type="button" class="tech-stack-tab" data-tech-tab="mobile"><span class="tech-stack-tab-icon"><img src="https://api.iconify.design/lucide:smartphone.svg?color=%23005463" alt=""></span>Mobile</button>
+        <button type="button" class="tech-stack-tab" data-tech-tab="frontend"><span class="tech-stack-tab-icon"><img src="https://api.iconify.design/lucide:monitor.svg?color=%23005463" alt=""></span>Front End</button>
+        <button type="button" class="tech-stack-tab" data-tech-tab="database"><span class="tech-stack-tab-icon"><img src="https://api.iconify.design/lucide:database.svg?color=%23005463" alt=""></span>Database</button>
+        <button type="button" class="tech-stack-tab" data-tech-tab="backend"><span class="tech-stack-tab-icon"><img src="https://api.iconify.design/lucide:server.svg?color=%23005463" alt=""></span>Backend</button>
+        <button type="button" class="tech-stack-tab" data-tech-tab="cms"><span class="tech-stack-tab-icon"><img src="https://api.iconify.design/lucide:layout-template.svg?color=%23005463" alt=""></span>CMS</button>
+        <button type="button" class="tech-stack-tab" data-tech-tab="devops"><span class="tech-stack-tab-icon"><img src="https://api.iconify.design/lucide:cloud-cog.svg?color=%23005463" alt=""></span>Infra &amp; DevOps</button>
       </div>
       <div class="tech-stack-grid" id="tech-stack-grid"></div>
     </div>
@@ -2828,33 +2868,18 @@ window.addEventListener('DOMContentLoaded',function(){
 <!-- ══ FOOTER ══ -->
 <footer class="footer" id="footer">
   <div class="ft-inner">
-
-    <!-- Top grid -->
     <div class="ft-grid">
-
-      <!-- Brand col -->
       <div class="ft-brand">
         <div class="ft-logo-wrap">
-          <img src="https://www.commercepundit.com/wp-content/uploads/2025/09/Footer_CP_logo.svg" alt="CommercePundit" height="21" style="display:block;height:21px;width:auto;filter:brightness(0) invert(1);">
+          <img src="https://www.commercepundit.com/wp-content/uploads/2025/09/Footer_CP_logo.svg" alt="CommercePundit" height="23" style="display:block;height:23px;width:auto;">
         </div>
-        <p class="ft-desc">AI-first digital engineering company. Intelligent commerce, data, and automation systems for businesses doing $5M–$500M.</p>
-        <div class="ft-socials">
-          <a class="ft-soc" href="https://www.linkedin.com/company/commercepundit" target="_blank" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a class="ft-soc" href="https://x.com/commercepundit" target="_blank" aria-label="X">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a class="ft-soc" href="https://www.instagram.com/commercepundit" target="_blank" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-          </a>
-          <a class="ft-soc" href="https://www.facebook.com/commercepundit" target="_blank" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-        </div>
+        <p class="ft-desc">Since 2009, we've been the engineering and e-commerce digital marketing agency team behind some of the most successful eCommerce brands in the world.</p>
+        <div class="ft-meta-h">Chat with us</div>
+        <a class="ft-meta-link" href="tel:+17702858191">770-285-8191</a>
+        <a class="ft-meta-mail" href="mailto:sales@commercepundit.com">sales@commercepundit.com</a>
+        <button class="ft-action" type="button">Contact Us <i>•</i></button>
       </div>
 
-      <!-- Company -->
       <div class="ft-col">
         <div class="ft-col-h">Company</div>
         <a class="ft-link" href="#">About</a>
@@ -2863,7 +2888,6 @@ window.addEventListener('DOMContentLoaded',function(){
         <a class="ft-link" href="#">Testimonials</a>
       </div>
 
-      <!-- Services -->
       <div class="ft-col">
         <div class="ft-col-h">Services</div>
         <a class="ft-link" href="#">Design</a>
@@ -2872,42 +2896,59 @@ window.addEventListener('DOMContentLoaded',function(){
         <a class="ft-link" href="#">Transform</a>
       </div>
 
-      <!-- Resources -->
       <div class="ft-col">
         <div class="ft-col-h">Resources</div>
         <a class="ft-link" href="#">Case Studies</a>
         <a class="ft-link" href="#">Blogs</a>
         <a class="ft-link" href="#">Save The Planet</a>
         <a class="ft-link" href="#">Google Review Calculator</a>
+        <div class="ft-col-h" style="margin-top:16px;">Find us at</div>
+        <div class="ft-cities">
+          <a class="ft-link" href="#">Atlanta</a>
+          <a class="ft-link" href="#">Ahmedabad</a>
+        </div>
       </div>
 
-      <!-- Find us -->
-      <div class="ft-col">
-        <div class="ft-col-h">Find us at</div>
-        <a class="ft-link" href="#">Atlanta</a>
-        <a class="ft-link" href="#">Ahmedabad</a>
-        <div class="ft-col-h" style="margin-top:20px;">Chat with us</div>
-        <a class="ft-link" href="tel:+17702858191">770-285-8191</a>
-        <a class="ft-link" href="mailto:hello@commercepundit.com">hello@commercepundit.com</a>
-        <a class="ft-link ft-cta-link" href="#">Contact Us &rarr;</a>
-      </div>
-
-    </div><!-- /ft-grid -->
-
-    <!-- Divider -->
-    <div class="ft-divider"></div>
-
-    <!-- Bottom bar -->
-    <div class="ft-bottom">
-      <span class="ft-copy">&copy; 2026 Commerce Pundit &mdash; All rights reserved. <em>Commerce Pundit operates only via commercepundit.com. Any communications from other domains are fraudulent.</em></span>
-      <div class="ft-bl">
-        <a class="ft-bl-link" href="#">Privacy Policy</a>
-        <a class="ft-bl-link" href="#">Terms of Service</a>
-        <a class="ft-bl-link" href="#">Cookie Policy</a>
+      <div class="ft-subscribe">
+        <h4>Subscribe Now</h4>
+        <p>To stay up to date on the latest ways to help your online business grow.</p>
+        <div class="ft-subscribe-row">
+          <input type="email" placeholder="Email Address*" aria-label="Email Address">
+          <button type="button" aria-label="Submit newsletter">→</button>
+        </div>
       </div>
     </div>
 
-  </div><!-- /ft-inner -->
+    <div class="ft-divider"></div>
+
+    <div class="ft-logos">
+      <div class="ft-logo-pill">Shopify</div>
+      <div class="ft-logo-pill">Magento</div>
+      <div class="ft-logo-pill">Odoo</div>
+      <div class="ft-logo-pill">AWS</div>
+      <div class="ft-logo-pill">PCI Compliant</div>
+      <div class="ft-logo-pill">ISO</div>
+      <div class="ft-logo-pill">GDPR</div>
+      <div class="ft-logo-pill">DMCA</div>
+      <div class="ft-logo-pill">Clutch ★★★★★</div>
+      <div class="ft-logo-pill">Google</div>
+    </div>
+
+    <div class="ft-bottom">
+      <div class="ft-socials">
+        <a class="ft-soc" href="https://www.linkedin.com/company/commercepundit" target="_blank" aria-label="LinkedIn">in</a>
+        <a class="ft-soc" href="https://www.facebook.com/commercepundit" target="_blank" aria-label="Facebook">f</a>
+        <a class="ft-soc" href="https://x.com/commercepundit" target="_blank" aria-label="X">x</a>
+        <a class="ft-soc" href="https://www.instagram.com/commercepundit" target="_blank" aria-label="Instagram">ig</a>
+        <a class="ft-soc" href="https://www.youtube.com/@CommercePundit" target="_blank" aria-label="YouTube">yt</a>
+      </div>
+      <div class="ft-bl">
+        <span>&copy; 2026 Commerce Pundit</span>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
